@@ -59,8 +59,10 @@ The following images shows how the points $x = (x, y)$ were sampled to fit the i
 
 ## Training objective
 The question now is, how the network can be trained such that be get a suitable probability density function $p_z(x)$ such that $R_z(x) = f_z(x)/p_z(x)$ has a low variance (when sampling of $x$ is according to $p_z$). The objective which is to be minimized, can be formulated as a functional:<br>
+<!-- 
 $F_z[\hat{f},\hat{p}] = \text{Var}_p(R_z/\hat{p}) = \mathbb{E}_p((R_z/\hat{p})^2) -\mathbb{E}_p(R_z/\hat{p})^2 = \int (R_z(x)/\hat{p}(x))^2 \hat{p}(x)\, dx - \Big(\int R_z(x)\,dx\Big)^2 = \int R_z(x)^2/\hat{p}(x)\, dx - \Big(\int R_z(x)\,dx\Big)^2 \\
-F_z[\hat{f},\hat{p}] = \int \big(f_z(x)-\hat{f}(x)\big)^2/\,\hat{p}(x)\, dx - \Big(\int f_z(x)-\hat{f}(x)\,dx\Big)^2$<br>
+F_z[\hat{f},\hat{p}] = \int \big(f_z(x)-\hat{f}(x)\big)^2/\,\hat{p}(x)\, dx - \Big(\int f_z(x)-\hat{f}(x)\,dx\Big)^2$<br>-->
+<img src="images/functional.png"><br>
 However, we have only limited access to $f_z(x)$. In fact, we are given a finite number function evaluations of $f$. Let us assume, we are given thousands of $z_i$ and some tuples $(x_{ij}, y_{ij})$ per $z_i$ with $y_{ij} = f_{z_i}(x_{ij})$ where $i=1,...,N$ and $j=1,...,n$.
 I. e. for every of the $N$ parameter combination $z_i$, we have $n$ of evaluations in $f_{z_i}(x)$.
 <br><br>
@@ -236,7 +238,7 @@ TODO:
 * "theta represents the learnable parameter, i. e. the networks weights"
 -->
 
-
+<!-- 
 ## Appendix D: Normalizing Flows
 Above, we wrote the desired integral $g(z)$ as the sum of two integrals, where the first term only involves the neural networks function $\hat{f}_z(x)$.<br>
 $g(z) = \int \hat{f}_z(x)\ dx + \int (f_z(x)-\hat{f}_z(x))\,dx$ <br>
@@ -254,6 +256,8 @@ The reason why we need the Jacobi determinant at all is that it tells us how an 
 For any warping function $h: \chi \rightarrow \chi'$, the probability density function transforms like<br>
 $p_{\chi'}(x') = p_{\chi}(x) \cdot \Big|\text{det}\Big(\frac{\partial h(x)}{\partial x^T}\Big)\Big|^{-1}$<br>
 where $x' = h(x)$. This means that we can consider our normalizing flow model as a warping of the uniform distribution of $[0,1]^2$ into a different probability distribution on $[0,1]^2$. Since a probability distribution is normalized, we have the desired property.<br>
+-->
+
 <!-- 
 TODO:
 * Wie gut fittet das nflow netzwerk die werte an?
